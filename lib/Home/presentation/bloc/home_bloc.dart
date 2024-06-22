@@ -39,12 +39,7 @@ class HomeBloc extends Bloc<Event, HomeViewState> {
     on<GetCatsEvent>(_onGetCatsEvent);
     on<GetDealsEvent>(_onGetDealsEvent);
   }
-  // GetBestSellingUseCase bestSellingUseCase;
-  // final GetNewArrivalUseCase _newArrivalUseCase;
 
-  // final GetRecommendedUseCase _recommendedUseCase;
-
-  // Getting articles event
   _onGetBestSellingEvent(
       GetBestSellingEvent event, Emitter<HomeViewState> emitter) async {
     if (event.withLoading) {

@@ -4,10 +4,13 @@ import 'package:slash/Home/domain/models/product.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:convert';
 
+// Local Data Source Implementation for Home
 @injectable
 class LocalDataSourceImpl implements LocalDataSource {
   final localDataPath = 'assets/data/dummyData.json';
 
+  /// [LocalDataSourceImpl] is an implementation of [LocalDataSource].
+  /// It provides methods to fetch product data from a local JSON file.
   @override
   Future<List<Product>?> getBestSellingProducts() async {
     // read json data
@@ -26,6 +29,10 @@ class LocalDataSourceImpl implements LocalDataSource {
   }
 
   Future<List<Product>> loadCategoryData(String category) async {
+    /// read json data
+    /// [localDataPath] is a path to the local JSON file
+    /// [category] is the category of products to be loaded
+    /// returns a list of [Product] objects
     final jsonString = await rootBundle.loadString(localDataPath);
     final jsonResponse = json.decode(jsonString);
     final List<dynamic> categoryJson = jsonResponse[category];

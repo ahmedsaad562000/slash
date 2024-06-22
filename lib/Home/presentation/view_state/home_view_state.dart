@@ -3,6 +3,9 @@ import 'package:slash/core/view_state.dart';
 import 'package:slash/Home/domain/models/product.dart';
 import 'package:slash/Home/domain/models/category.dart';
 
+/// [HomeViewState] is a class that represents the view state for home screen.
+/// It contains the common view state for best selling, new arrival, recommended, category and deals.
+/// these common view state are used in the home screen to show different views based on the state of the data.
 class HomeViewState implements ViewState {
   final CommonViewState<List<Product>> bestSellingViewState;
   final CommonViewState<List<Product>> newArrivalViewState;

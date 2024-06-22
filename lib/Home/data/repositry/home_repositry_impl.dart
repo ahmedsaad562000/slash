@@ -6,6 +6,11 @@ import 'package:slash/Home/domain/repositry/home_repositry.dart';
 
 @injectable
 class HomeRepositoryImpl implements HomeRepositry {
+  /// [HomeRepositoryImpl] is an implementation of [HomeRepositry].
+  /// It provides methods to fetch product data from a local JSON file.
+  /// [productsProvider] is an instance of [LocalDataSource] that provides methods to fetch product data from a local JSON file.
+  /// It is injected using dependency injection.
+  /// using GetIt and Injectable packages
   final LocalDataSource productsProvider;
 
   HomeRepositoryImpl(this.productsProvider);

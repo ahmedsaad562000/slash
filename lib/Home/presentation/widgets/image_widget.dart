@@ -9,6 +9,7 @@ class ImageWidget extends StatefulWidget {
 }
 
 class _ImageWidgetState extends State<ImageWidget> {
+  /// [ImageWidget] is a widget that displays an image from a given [imagePath] whether it is a URL or a local path.
   @override
   Widget build(BuildContext context) {
     bool isUrl = widget.imagePath.startsWith('http');

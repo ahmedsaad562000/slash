@@ -5,6 +5,7 @@ import 'package:slash/Home/domain/repositry/home_repositry.dart';
 
 @lazySingleton
 class GetNewArrivalUseCase {
+  /// [GetNewArrivalUseCase] is a class that represents a use case for fetching new arrival products.
   final HomeRepositry homeRepositry;
 
   GetNewArrivalUseCase(this.homeRepositry);

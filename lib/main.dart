@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        /// Home Bloc provider
         BlocProvider(
           create: (context) => GetIt.instance<HomeBloc>(),
         ),

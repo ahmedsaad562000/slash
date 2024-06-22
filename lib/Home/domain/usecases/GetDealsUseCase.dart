@@ -8,6 +8,7 @@ List<String> bannerImages = [
 
 @lazySingleton
 class GetDealsUseCase {
+  /// [GetDealsUseCase] is a class that represents a use case for fetching deals.
   Future<DataState<List<String>>> call() async {
     return DataState.success(bannerImages);
   }

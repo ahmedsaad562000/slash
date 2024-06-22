@@ -1,4 +1,6 @@
 class Product {
+  /// [Product] is a class that represents a product.
+  /// It has an id, a name, an image link or asset path, a price, and a boolean value for favourite and cart.
   final int id;
   final String name;
   final String image;

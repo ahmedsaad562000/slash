@@ -1,4 +1,6 @@
 class Category {
+  /// [Category] is a class that represents a category of products.
+  /// It has a name and an icon.
   String name;
   String icon;
 
