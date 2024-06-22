@@ -3,12 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 
 import 'package:google_fonts/google_fonts.dart';
-import 'package:slash/bloc/home_bloc.dart';
-
-// import 'package:slash/bloc/home_bloc.dart';
-// import 'package:slash/model/di/home_module.dart';
-import 'package:slash/model/di/injection.dart';
-import 'package:slash/view/screens/home_screen.dart';
+import 'package:slash/Home/presentation/bloc/home_bloc.dart';
+import 'package:slash/Home/di/injection.dart';
+import 'package:slash/Home/presentation/screens/home_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
