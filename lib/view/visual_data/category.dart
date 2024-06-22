@@ -1,9 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:icons_plus/icons_plus.dart';
-
 class Category {
   String name;
-  IconData icon;
+  String icon;
 
   Category({required this.name, required this.icon});
 }
@@ -11,22 +8,27 @@ class Category {
 List<Category> categories = [
   Category(
     name: 'Fashion',
-    icon: FontAwesome.shirt_solid,
+    // icon: FontAwesome.shirt_solid,
+    icon: "assets/images/icons/fashion.svg",
   ),
   Category(
     name: 'Games',
-    icon: FontAwesome.dice_five_solid,
+    // icon: FontAwesome.dice_five_solid,
+    icon: "assets/images/icons/games.svg",
   ),
   Category(
     name: 'Accessories',
-    icon: FontAwesome.glasses_solid,
+    // icon: FontAwesome.glasses_solid,
+    icon: "assets/images/icons/glasses.svg",
   ),
   Category(
     name: 'Books',
-    icon: FontAwesome.book_solid,
+    // icon: FontAwesome.book_solid,
+    icon: "assets/images/icons/book.svg",
   ),
   Category(
     name: 'Artifacts',
-    icon: FontAwesome.palette_solid,
+    // icon: FontAwesome.palette_solid,
+    icon: "assets/images/icons/palette.svg",
   ),
 ];

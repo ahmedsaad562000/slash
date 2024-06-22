@@ -14,16 +14,17 @@ class CatsLazyRow extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
+          const SizedBox(width: 7),
           ...cats.map(
             (cat) => Container(
               padding: const EdgeInsets.symmetric(horizontal: 5),
               width:
                   (MediaQuery.of(context).orientation == Orientation.portrait)
-                      ? MediaQuery.of(context).size.width / 4.2
+                      ? MediaQuery.of(context).size.width / 4.4
                       : MediaQuery.of(context).size.width / 6.3,
               child: Column(
                 children: [
-                  CategoryBtn(cat.name, cat.icon, () {}, 35),
+                  CategoryBtn(cat.icon, () {}, 35),
                   const SizedBox(
                     height: 5,
                   ),

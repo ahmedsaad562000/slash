@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:icons_plus/icons_plus.dart';
 
 class MySearchBar extends StatefulWidget {
@@ -56,7 +57,7 @@ class _MySearchBarState extends State<MySearchBar> with WidgetsBindingObserver {
                   borderRadius: BorderRadius.circular(8.0),
                   child: TextField(
                     focusNode: _focusNode,
-                    showCursor: _focusNode.hasFocus,
+                    showCursor: _focusNode.hasFocus || _isFocused,
                     cursorColor: const Color.fromARGB(255, 150, 150, 150),
                     decoration: InputDecoration(
                       alignLabelWithHint: true,
@@ -70,7 +71,7 @@ class _MySearchBarState extends State<MySearchBar> with WidgetsBindingObserver {
                         onPressed: () {},
                       ),
                       filled: true,
-                      fillColor: const Color.fromARGB(255, 228, 228, 228),
+                      fillColor: const Color.fromARGB(128, 228, 228, 228),
                       hintText: "Search here...",
                       hintStyle: Theme.of(context)
                           .textTheme
@@ -92,12 +93,17 @@ class _MySearchBarState extends State<MySearchBar> with WidgetsBindingObserver {
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                     elevation: 0,
-                    fillColor: const Color.fromARGB(255, 228, 228, 228),
+                    fillColor: const Color.fromARGB(128, 228, 228, 228),
                     onPressed: () {},
-                    child: Icon(
-                      size: 20,
-                      Icons.tune_rounded,
-                      color: Theme.of(context).cardColor,
+                    child: SvgPicture.asset(
+                      "assets/images/icons/tune.svg",
+                      width: 20,
+                      height: 20,
+                      fit: BoxFit.fill,
+                      colorFilter: const ColorFilter.mode(
+                        const Color.fromARGB(255, 95, 95, 95),
+                        BlendMode.srcIn,
+                      ),
                     )),
               ),
             ],

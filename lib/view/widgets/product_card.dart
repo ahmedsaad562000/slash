@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
+import 'package:slash/view/widgets/category_btn.dart';
+import 'package:slash/view/widgets/image_widget.dart';
 
 class ProductCard extends StatefulWidget {
   final int id;
@@ -37,27 +39,10 @@ class _ProductCardState extends State<ProductCard> {
             Flexible(
               flex: 5,
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(8.0),
-                child: Image.asset(
-                  widget.imagePath,
-                  width: double.infinity,
-                  height: double.infinity,
-                  fit: BoxFit.cover,
-                  errorBuilder: (BuildContext context, Object exception,
-                      StackTrace? stackTrace) {
-                    return Container(
-                      width: double.infinity,
-                      height: double.infinity,
-                      color: Colors.grey[200],
-                      child: Icon(
-                        Icons.broken_image,
-                        size: 100,
-                        color: Colors.grey[400],
-                      ),
-                    );
-                  },
-                ),
-              ),
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: ImageWidget(
+                    imagePath: widget.imagePath,
+                  )),
             ),
             Flexible(
               flex: 1,
@@ -94,14 +79,11 @@ class _ProductCardState extends State<ProductCard> {
                       const SizedBox(
                         width: 5,
                       ),
-                      GestureDetector(
-                        onTap: () {},
-                        child: CircleAvatar(
-                          backgroundColor: Colors.transparent,
-                          radius: 11,
-                          child: Icon(Icons.add_circle_rounded,
-                              color: Theme.of(context).cardColor),
-                        ),
+                      //
+                      CategoryBtn(
+                        "assets/images/icons/plus.svg",
+                        () {},
+                        11,
                       ),
                     ],
                   ),
@@ -113,7 +95,9 @@ class _ProductCardState extends State<ProductCard> {
             padding: const EdgeInsets.all(5),
             alignment: Alignment.topRight,
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                print("love it");
+              },
               child: CircleAvatar(
                 radius: 15,
                 backgroundColor: Theme.of(context).dialogBackgroundColor,

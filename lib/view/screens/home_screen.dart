@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:icons_plus/icons_plus.dart';
 import 'package:slash/model/domain/models/product.dart';
 import 'package:slash/view/visual_data/category.dart';
 import 'package:slash/view/widgets/cats_lazy_row.dart';
 import 'package:slash/view/widgets/header_text.dart';
 import 'package:slash/view/widgets/home_header.dart';
+import 'package:slash/view/widgets/images_slider.dart';
 import 'package:slash/view/widgets/my_search_bar.dart';
 import 'package:slash/view/widgets/products_lazy_row.dart';
 
@@ -57,6 +57,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    List<String> banner_images = [
+      "assets/images/hot_deal_1.png",
+      "https://static.wixstatic.com/media/04c490_ed970a7bd6a438f9a573f5a084147da2.gif"
+    ];
     // final _inputController = TextEditingController();
     // ApiResponse apiResponse = Provider.of<MediaViewModel>(context).response;
     return Scaffold(
@@ -69,14 +73,25 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+              const Padding(
+                padding: EdgeInsets.symmetric(
+                  vertical: 10.0,
+                ),
+                child: MySearchBar(),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10.0),
+                child: ImagesSlider(
+                    images: banner_images,
+                    height: MediaQuery.of(context).size.height * 0.2),
+              ),
               Column(
                 children: [
-                  const MySearchBar(),
                   const Headertext(category: "Categories"),
                   const SizedBox(
                     height: 10,
                   ),
-                  CatsLazyRow(cats: categories)
+                  CatsLazyRow(cats: categories),
                 ],
               ),
               ProductsLazyRow(
