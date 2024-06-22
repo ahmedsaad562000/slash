@@ -45,6 +45,8 @@ dependencies:
   carousel_slider: ^4.2.1
   smooth_page_indicator: ^1.1.0
   flutter_svg: ^2.0.10+1
+  injectable_generator: ^2.6.1
+  flutter_bloc: ^8.1.6
 
 dev_dependencies:
   flutter_test:
@@ -86,6 +88,7 @@ flutter:
     - assets/images/icons/palette.svg
     - assets/images/icons/tune.svg
     - assets/images/icons/plus.svg
+    - assets/images/icons/right.svg
     - assets/images/error.png
     - assets/images/placeholder.png
 

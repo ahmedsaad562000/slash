@@ -22,77 +22,77 @@
       "id": 4,
       "name": "Best Seller 4",
       "price": 39.99,
-      "image": "assets/images/best_seller_4.png"
+      "image": "https://th.bing.com/th/id/R.86f937d428cd91e084a7ee6c339b62b6?rik=boaRtSHkGFHG9w&pid=ImgRaw&r=0"
     },
     {
       "id": 5,
       "name": "Best Seller 5",
       "price": 24.99,
-      "image": "assets/images/best_seller_5.png"
+      "image": "https://th.bing.com/th/id/R.51be0463f2b420dbe8d13d39cca0d59f?rik=QaIzqt2C%2bjjyJw&pid=ImgRaw&r=0"
     }
   ],
   "newArrival": [
     {
-      "id": 1,
+      "id": 6,
       "name": "New Arrival 1",
       "price": 34.99,
-      "image": "https://th.bing.com/th/id/R.51be0463f2b420dbe8d13d39cca0d59f?rik=QaIzqt2C%2bjjyJw&pid=ImgRaw&r=0"
+      "image": "assets/images/new_arrival_1.png"
     },
     {
-      "id": 2,
+      "id": 7,
       "name": "New Arrival 2",
       "price": 54.99,
       "image": "assets/images/new_arrival_2.png"
     },
     {
-      "id": 3,
+      "id": 8,
       "name": "New Arrival 3",
       "price": 21.99,
       "image": "assets/images/new_arrival_3.png"
     },
     {
-      "id": 4,
+      "id": 9,
       "name": "New Arrival 4",
       "price": 42.99,
-      "image": "assets/images/new_arrival_4.png"
+      "image": "https://i.etsystatic.com/7007011/r/il/970819/1636483168/il_794xN.1636483168_rcff.jpg"
     },
     {
-      "id": 5,
+      "id": 10,
       "name": "New Arrival 5",
       "price": 29.49,
-      "image": "assets/images/new_arrival_5.png"
+      "image": "https://th.bing.com/th/id/OIP.yuIhGQGVmD9pCQd22TKOWAHaHd?rs=1&pid=ImgDetMain"
     }
   ],
   "recommendedForYou": [
     {
-      "id": 1,
+      "id": 11,
       "name": "Recommended 1",
       "price": 27.99,
       "image": "assets/images/recommended_1.png"
     },
     {
-      "id": 2,
+      "id": 12,
       "name": "Recommended 2",
       "price": 47.99,
       "image": "assets/images/recommended_2.png"
     },
     {
-      "id": 3,
+      "id": 13,
       "name": "Recommended 3",
       "price": 18.99,
       "image": "assets/images/recommended_3.png"
     },
     {
-      "id": 4,
+      "id": 14,
       "name": "Recommended 4",
       "price": 36.99,
-      "image": "assets/images/recommended_4.png"
+      "image": "https://i.pinimg.com/originals/35/94/79/3594793ee69d85ab8e82e780537fa83e.jpg"
     },
     {
-      "id": 5,
+      "id": 15,
       "name": "Recommended 5",
       "price": 25.99,
-      "image": "assets/images/recommended_5.png"
+      "image": "https://www.zzzone.co.uk/wp-content/uploads/2021/05/Creative-Product-Photography-2.jpg"
     }
   ]
 }
