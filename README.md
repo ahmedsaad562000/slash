@@ -6,6 +6,10 @@ This project utilizes **modern state management** and **dependency injection** t
 
 
 
+[![Watch the video](https://img.youtube.com/vi/)](https://github.com/ahmedsaad562000/slash/assets/76961547/5001b527-6224-47ff-9fdb-71fa6a6a95b1)
+
+
+
 It also provides **smooth and intuitive user interface** and **offline access to product data**.
 
 
