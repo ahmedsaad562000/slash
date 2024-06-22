@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:slash/model/domain/data_state.dart';
 import 'package:slash/model/domain/models/product.dart';

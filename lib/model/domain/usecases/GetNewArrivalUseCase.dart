@@ -3,7 +3,7 @@ import 'package:slash/model/domain/data_state.dart';
 import 'package:slash/model/domain/models/product.dart';
 import 'package:slash/model/domain/repositry/home_repositry.dart';
 
-@injectable
+@lazySingleton
 class GetNewArrivalUseCase {
   final HomeRepositry homeRepositry;
 
