@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:slash/view/visual_data/category.dart';
+import 'package:slash/model/domain/models/category.dart';
 import 'package:slash/view/widgets/category_btn.dart';
 
 class CatsLazyRow extends StatelessWidget {

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class ImageWidget extends StatefulWidget {
   final String imagePath;
@@ -13,7 +12,6 @@ class _ImageWidgetState extends State<ImageWidget> {
   @override
   Widget build(BuildContext context) {
     bool isUrl = widget.imagePath.startsWith('http');
-    bool isSvg = widget.imagePath.endsWith('.svg');
     return (isUrl)
         ? FadeInImage.assetNetwork(
             width: double.infinity,

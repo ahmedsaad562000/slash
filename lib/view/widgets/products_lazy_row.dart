@@ -5,10 +5,16 @@ import 'package:slash/view/widgets/product_card.dart';
 
 class ProductsLazyRow extends StatefulWidget {
   final String category;
+  final Function onFavouritePressed;
+  final Function onCartPressed;
   final List<Product> products;
 
   const ProductsLazyRow(
-      {required this.category, required this.products, super.key});
+      {required this.category,
+      required this.products,
+      required this.onFavouritePressed,
+      required this.onCartPressed,
+      super.key});
 
   @override
   State<ProductsLazyRow> createState() => _ProductsLazyRowState();
@@ -41,6 +47,10 @@ class _ProductsLazyRowState extends State<ProductsLazyRow> {
                             ? MediaQuery.of(context).size.height / 4
                             : MediaQuery.of(context).size.height / 2,
                         onTap: () {},
+                        isfavourite: product.isfavourite,
+                        iscart: product.iscart,
+                        onFavouritePressed: widget.onFavouritePressed,
+                        onCartPressed: widget.onCartPressed,
                       ))),
                 ]),
           ),

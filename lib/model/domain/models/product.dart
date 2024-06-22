@@ -4,6 +4,9 @@ class Product {
   final String image;
   final double price;
 
+  bool isfavourite = false;
+  bool iscart = false;
+
   Product(
       {this.id = 0,
       this.name = "default_name",

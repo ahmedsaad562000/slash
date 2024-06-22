@@ -9,8 +9,12 @@ class ProductCard extends StatefulWidget {
   final double price;
   final String imagePath;
   final double height;
+  final bool isfavourite;
+  final bool iscart;
 
   final Function onTap;
+  final Function onFavouritePressed;
+  final Function onCartPressed;
 
   const ProductCard(
       {required this.id,
@@ -19,6 +23,10 @@ class ProductCard extends StatefulWidget {
       required this.imagePath,
       required this.height,
       required this.onTap,
+      required this.isfavourite,
+      required this.iscart,
+      required this.onFavouritePressed,
+      required this.onCartPressed,
       super.key});
 
   @override
@@ -80,10 +88,23 @@ class _ProductCardState extends State<ProductCard> {
                         width: 5,
                       ),
                       //
-                      CategoryBtn(
-                        "assets/images/icons/plus.svg",
-                        () {},
-                        11,
+                      AnimatedSwitcher(
+                        duration: const Duration(milliseconds: 500),
+                        transitionBuilder:
+                            (Widget child, Animation<double> animation) {
+                          return FadeTransition(
+                              opacity: animation, child: child);
+                        },
+                        child: CategoryBtn(
+                          key: ValueKey<bool>(widget.iscart),
+                          (widget.iscart)
+                              ? "assets/images/icons/right.svg"
+                              : "assets/images/icons/plus.svg",
+                          () {
+                            widget.onCartPressed(widget.id, !widget.iscart);
+                          },
+                          11,
+                        ),
                       ),
                     ],
                   ),
@@ -96,15 +117,26 @@ class _ProductCardState extends State<ProductCard> {
             alignment: Alignment.topRight,
             child: InkWell(
               onTap: () {
-                print("love it");
+                widget.onFavouritePressed(widget.id, !widget.isfavourite);
               },
-              child: CircleAvatar(
-                radius: 15,
-                backgroundColor: Theme.of(context).dialogBackgroundColor,
-                child: Icon(
-                  size: 20,
-                  AntDesign.heart_outline,
-                  color: Theme.of(context).cardColor,
+              child: AnimatedSwitcher(
+                duration: const Duration(milliseconds: 500),
+                transitionBuilder: (Widget child, Animation<double> animation) {
+                  return FadeTransition(opacity: animation, child: child);
+                },
+                child: CircleAvatar(
+                  key: ValueKey<bool>(widget.isfavourite),
+                  radius: 15,
+                  backgroundColor: Theme.of(context).dialogBackgroundColor,
+                  child: Icon(
+                    size: 20,
+                    (widget.isfavourite)
+                        ? AntDesign.heart_fill
+                        : AntDesign.heart_outline,
+                    color: (widget.isfavourite)
+                        ? Colors.red
+                        : Theme.of(context).cardColor,
+                  ),
                 ),
               ),
             ),

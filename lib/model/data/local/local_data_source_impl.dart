@@ -1,8 +1,10 @@
+import 'package:injectable/injectable.dart';
 import 'package:slash/model/data/local/local_data_source.dart';
 import 'package:slash/model/domain/models/product.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:convert';
 
+@injectable
 class LocalDataSourceImpl implements LocalDataSource {
   final localDataPath = 'assets/data/dummyData.json';
 

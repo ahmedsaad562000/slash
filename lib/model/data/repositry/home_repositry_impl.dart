@@ -1,8 +1,10 @@
+import 'package:injectable/injectable.dart';
 import 'package:slash/model/data/local/local_data_source.dart';
 import 'package:slash/model/domain/data_state.dart';
 import 'package:slash/model/domain/models/product.dart';
 import 'package:slash/model/domain/repositry/home_repositry.dart';
 
+@injectable
 class HomeRepositoryImpl implements HomeRepositry {
   final LocalDataSource productsProvider;
 

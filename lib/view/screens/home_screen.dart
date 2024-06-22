@@ -1,66 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:slash/model/domain/models/product.dart';
-import 'package:slash/view/visual_data/category.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
+import 'package:slash/bloc/home_bloc.dart';
+import 'package:slash/core/common_view_state.dart';
 import 'package:slash/view/widgets/cats_lazy_row.dart';
 import 'package:slash/view/widgets/header_text.dart';
 import 'package:slash/view/widgets/home_header.dart';
 import 'package:slash/view/widgets/images_slider.dart';
 import 'package:slash/view/widgets/my_search_bar.dart';
 import 'package:slash/view/widgets/products_lazy_row.dart';
+import 'package:slash/view_state/home_view_state.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  HomeScreen({super.key});
+
+  final _bloc = GetIt.instance<HomeBloc>();
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  // Widget getMediaWidget(BuildContext context, ApiResponse apiResponse) {
-  //   //TODO: List<Media>? mediaList = apiResponse.data as List<Media>?;
-  //   switch (apiResponse.status) {
-  //     case Status.loading:
-  //       return Center(child: CircularProgressIndicator());
-  //     case Status.completed:
-  //       return Column(
-  //         mainAxisSize: MainAxisSize.min,
-  //         children: [
-  //           Expanded(
-  //               flex: 8,
-  //               child: Container(
-
-  //                   // TODO: implement search functionality
-  //                   )),
-  //           Expanded(
-  //             flex: 2,
-  //             child: Align(
-  //               alignment: Alignment.bottomCenter,
-  //               child: Container(
-
-  //                   // TODO: implement search functionality
-  //                   ),
-  //             ),
-  //           ),
-  //         ],
-  //       );
-  //     case Status.error:
-  //       return const Center(
-  //         child: Text('Please try again latter!!!'),
-  //       );
-  //     case Status.initial:
-  //     default:
-  //       return const Center(
-  //         child: Text('Search the song by Artist'),
-  //       );
-  //   }
-  // }
+  @override
+  void initState() {
+    widget._bloc.loadall();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    List<String> banner_images = [
-      "assets/images/hot_deal_1.png",
-      "https://static.wixstatic.com/media/04c490_ed970a7bd6a438f9a573f5a084147da2.gif"
-    ];
     // final _inputController = TextEditingController();
     // ApiResponse apiResponse = Provider.of<MediaViewModel>(context).response;
     return Scaffold(
@@ -79,57 +47,107 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 child: MySearchBar(),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10.0),
-                child: ImagesSlider(
-                    images: banner_images,
-                    height: MediaQuery.of(context).size.height * 0.2),
+              BlocConsumer<HomeBloc, HomeViewState>(
+                bloc: widget._bloc,
+                listener: (context, state) => {},
+                builder: (context, state) {
+                  if (state.dealsViewState is SuccessState) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 10.0),
+                      child: ImagesSlider(
+                          images: (state.dealsViewState as SuccessState).data,
+                          height: (MediaQuery.of(context).orientation ==
+                                  Orientation.portrait)
+                              ? MediaQuery.of(context).size.height * 0.2
+                              : MediaQuery.of(context).size.height * 0.5),
+                    );
+                  } else {
+                    return const Placeholder();
+                  }
+                },
               ),
-              Column(
-                children: [
-                  const Headertext(category: "Categories"),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  CatsLazyRow(cats: categories),
-                ],
+              BlocConsumer<HomeBloc, HomeViewState>(
+                bloc: widget._bloc,
+                listener: (context, state) => {},
+                builder: (context, state) {
+                  if (state.catViewState is SuccessState) {
+                    return Column(
+                      children: [
+                        const Headertext(category: "Categories"),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        CatsLazyRow(
+                            cats: (state.catViewState as SuccessState).data),
+                      ],
+                    );
+                  } else {
+                    return const Placeholder();
+                  }
+                },
               ),
-              ProductsLazyRow(
-                  category: "Best Selling",
-                  products: List<Product>.generate(
-                    6,
-                    (index) => Product(
-                      id: index,
-                      name: "Product $index",
-                      image:
-                          "assets/images/best_seller_${index + 1}.png", //"assets/images/recommended $index",
-                      price: 50 * (index + 1),
-                    ),
-                  )),
-              ProductsLazyRow(
-                  category: "New Arrival",
-                  products: List<Product>.generate(
-                    6,
-                    (index) => Product(
-                      id: index,
-                      name: "Product $index",
-                      image:
-                          "assets/images/new_arrival_${index + 1}.png", //"assets/images/recommended $index",
-                      price: 50 * (index + 1),
-                    ),
-                  )),
-              ProductsLazyRow(
-                  category: "Recommended for you",
-                  products: List<Product>.generate(
-                    6,
-                    (index) => Product(
-                      id: index,
-                      name: "Product $index",
-                      image:
-                          "assets/images/recommended_${index + 1}.png", //"assets/images/recommended $index",
-                      price: 50 * (index + 1),
-                    ),
-                  )),
+              BlocConsumer<HomeBloc, HomeViewState>(
+                bloc: widget._bloc,
+                listener: (context, state) => {},
+                builder: (context, state) {
+                  if (state.bestSellingViewState is SuccessState) {
+                    return ProductsLazyRow(
+                        category: "Best Selling",
+                        products:
+                            (state.bestSellingViewState as SuccessState).data,
+                        onFavouritePressed: (int id, bool isfavourite) {
+                          widget._bloc.updateFavorite(id, isfavourite);
+                        },
+                        onCartPressed: (int id, bool iscart) {
+                          widget._bloc.updateCart(id, iscart);
+                        });
+                  } else {
+                    return const Placeholder();
+                  }
+                },
+              ),
+              BlocConsumer<HomeBloc, HomeViewState>(
+                bloc: widget._bloc,
+                listener: (context, state) => {},
+                builder: (context, state) {
+                  if (state.newArrivalViewState is SuccessState) {
+                    return ProductsLazyRow(
+                      category: "NewArrival",
+                      products:
+                          (state.newArrivalViewState as SuccessState).data,
+                      onFavouritePressed: (int id, bool isfavourite) {
+                        widget._bloc.updateFavorite(id, isfavourite);
+                      },
+                      onCartPressed: (int id, bool iscart) {
+                        widget._bloc.updateCart(id, iscart);
+                      },
+                    );
+                  } else {
+                    return const Placeholder();
+                  }
+                },
+              ),
+              BlocConsumer<HomeBloc, HomeViewState>(
+                bloc: widget._bloc,
+                listener: (context, state) => {},
+                builder: (context, state) {
+                  if (state.recommendedViewState is SuccessState) {
+                    return ProductsLazyRow(
+                      category: "Recommended for you",
+                      products:
+                          (state.recommendedViewState as SuccessState).data,
+                      onFavouritePressed: (int id, bool isfavourite) {
+                        widget._bloc.updateFavorite(id, isfavourite);
+                      },
+                      onCartPressed: (int id, bool iscart) {
+                        widget._bloc.updateCart(id, iscart);
+                      },
+                    );
+                  } else {
+                    return const Placeholder();
+                  }
+                },
+              ),
             ]),
       ),
       // getMediaWidget(context, apiResponse),

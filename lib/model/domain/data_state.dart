@@ -6,6 +6,8 @@ abstract class DataState<T> {
 
   factory DataState.idle() => Idle<T>();
 
+  factory DataState.loading() => Loading<T>();
+
   factory DataState.error(Exception throwable) => Error<T>(throwable);
 
   factory DataState.success(T data) => Success<T>(data);
@@ -29,4 +31,8 @@ class Success<T> extends DataState<T> {
 
 class Empty<T> extends DataState<T> {
   Empty() : super(false, null);
+}
+
+class Loading<T> extends DataState<T> {
+  Loading() : super(true, null);
 }
