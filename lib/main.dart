@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:slash/Home/presentation/bloc/home_bloc.dart';
 import 'package:slash/Home/di/injection.dart';
 import 'package:slash/Home/presentation/screens/home_screen.dart';
+import 'package:slash/Home/presentation/screens/navBar.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -42,6 +43,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSwatch().copyWith(
             secondary: Colors.deepOrange, // Your accent color
           ),
+          canvasColor: Colors.white,
           textTheme: TextTheme(
             displaySmall: GoogleFonts.urbanist(
               fontSize: 14,
@@ -75,8 +77,9 @@ class MyApp extends StatelessWidget {
           ),
         ),
         initialRoute: '/',
-        routes: {
-          '/': (context) => HomeScreen(),
+        routes: <String, WidgetBuilder>{
+          '/': (BuildContext context) => NavBar(),
+          '/home': (BuildContext context) => HomeScreen(),
         },
       ),
     );

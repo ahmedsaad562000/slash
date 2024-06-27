@@ -15,7 +15,7 @@ class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
 
   final _bloc = GetIt.instance<HomeBloc>();
-
+  int _selectedIndex = 0;
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
