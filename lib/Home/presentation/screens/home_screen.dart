@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:slash/Home/presentation/bloc/home_bloc.dart';
+import 'package:slash/Home/presentation/widgets/shimmer_cats_lazy_row.dart';
+import 'package:slash/Home/presentation/widgets/shimmer_products_lazy_row.dart';
 import 'package:slash/core/common_view_state.dart';
 import 'package:slash/Home/presentation/widgets/cats_lazy_row.dart';
 import 'package:slash/Home/presentation/widgets/header_text.dart';
@@ -10,12 +12,12 @@ import 'package:slash/Home/presentation/widgets/images_slider.dart';
 import 'package:slash/Home/presentation/widgets/my_search_bar.dart';
 import 'package:slash/Home/presentation/widgets/products_lazy_row.dart';
 import 'package:slash/Home/presentation/view_state/home_view_state.dart';
+import 'package:shimmer/shimmer.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
 
   final _bloc = GetIt.instance<HomeBloc>();
-  int _selectedIndex = 0;
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -62,7 +64,27 @@ class _HomeScreenState extends State<HomeScreen> {
                               : MediaQuery.of(context).size.height * 0.5),
                     );
                   } else {
-                    return const Placeholder();
+                    // return SizedBox(
+                    //     height: (MediaQuery.of(context).orientation ==
+                    //             Orientation.portrait)
+                    //         ? MediaQuery.of(context).size.height * 0.2
+                    //         : MediaQuery.of(context).size.height * 0.5);
+                    return Shimmer.fromColors(
+                      baseColor: Colors.grey.shade300,
+                      highlightColor: Colors.grey.shade100,
+                      child: Container(
+                          decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(10.0),
+                              ),
+                              color: Colors.grey),
+                          margin: const EdgeInsets.symmetric(
+                              vertical: 10, horizontal: 20),
+                          height: (MediaQuery.of(context).orientation ==
+                                  Orientation.portrait)
+                              ? MediaQuery.of(context).size.height * 0.2
+                              : MediaQuery.of(context).size.height * 0.5),
+                    );
                   }
                 },
               ),
@@ -81,8 +103,20 @@ class _HomeScreenState extends State<HomeScreen> {
                             cats: (state.catViewState as SuccessState).data),
                       ],
                     );
+
+                    // return const Column(
+                    //   children: [
+                    //     Headertext(category: "Categories"),
+                    //     ShimmerCatsLazyRow(height: 70),
+                    //   ],
+                    // );
                   } else {
-                    return const Placeholder();
+                    return const Column(
+                      children: [
+                        Headertext(category: "Categories"),
+                        ShimmerCatsLazyRow(height: 50),
+                      ],
+                    );
                   }
                 },
               ),
@@ -102,7 +136,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           widget._bloc.updateCart(id, iscart);
                         });
                   } else {
-                    return const Placeholder();
+                    return const Column(
+                      children: [
+                        Headertext(category: "Best Selling"),
+                        ShimmerProductsLazyRow(),
+                      ],
+                    );
                   }
                 },
               ),
@@ -112,7 +151,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 builder: (context, state) {
                   if (state.newArrivalViewState is SuccessState) {
                     return ProductsLazyRow(
-                      category: "NewArrival",
+                      category: "New Arrival",
                       products:
                           (state.newArrivalViewState as SuccessState).data,
                       onFavouritePressed: (int id, bool isfavourite) {
@@ -123,7 +162,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                     );
                   } else {
-                    return const Placeholder();
+                    return const Column(
+                      children: [
+                        Headertext(category: "New Arrival"),
+                        ShimmerProductsLazyRow(),
+                      ],
+                    );
                   }
                 },
               ),
@@ -144,7 +188,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                     );
                   } else {
-                    return const Placeholder();
+                    return const Column(
+                      children: [
+                        Headertext(category: "Recommended for you"),
+                        ShimmerProductsLazyRow(),
+                      ],
+                    );
                   }
                 },
               ),

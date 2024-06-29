@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart'; // Assuming this is your custom icon package
 import 'package:slash/Home/presentation/screens/home_screen.dart'; // Import your actual screen widgets
-import 'package:slash/Home/presentation/widgets/image_widget.dart'; // Import your actual widgets
 
 class NavBar extends StatefulWidget {
   const NavBar({Key? key}) : super(key: key);
@@ -16,9 +15,9 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
 
   final List<Widget> _pages = [
     HomeScreen(key: const PageStorageKey('Home')),
-    EmptyPage(text: "Favorites", key: const PageStorageKey("Favorites")),
-    EmptyPage(text: "My Cart", key: const PageStorageKey("Cart")),
-    EmptyPage(text: "Profile", key: const PageStorageKey("Profile")),
+    const EmptyPage(text: "Favorites", key: PageStorageKey("Favorites")),
+    const EmptyPage(text: "My Cart", key: PageStorageKey("Cart")),
+    const EmptyPage(text: "Profile", key: PageStorageKey("Profile")),
   ];
 
   @override

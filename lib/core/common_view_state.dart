@@ -32,3 +32,7 @@ class ErrorState<T> extends CommonViewState<T> {
 class EmptyState<T> extends CommonViewState<T> {
   const EmptyState();
 }
+
+class IdleState<T> extends CommonViewState<T> {
+  const IdleState();
+}

@@ -14,11 +14,11 @@ class HomeViewState implements ViewState {
   final CommonViewState<List<String>> dealsViewState;
 
   const HomeViewState({
-    this.bestSellingViewState = const EmptyState(),
-    this.newArrivalViewState = const EmptyState(),
-    this.recommendedViewState = const EmptyState(),
-    this.catViewState = const EmptyState(),
-    this.dealsViewState = const EmptyState(),
+    this.bestSellingViewState = const IdleState(),
+    this.newArrivalViewState = const IdleState(),
+    this.recommendedViewState = const IdleState(),
+    this.catViewState = const IdleState(),
+    this.dealsViewState = const IdleState(),
   });
 
   HomeViewState copyWith({
