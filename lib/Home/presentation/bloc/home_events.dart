@@ -6,18 +6,15 @@ class GetBestSellingEvent extends Event {
   GetBestSellingEvent() : super(withLoading: true);
 }
 
-
 // On Fetching New Arrival Event
 class GetNewArrivalEvent extends Event {
   GetNewArrivalEvent() : super(withLoading: true);
 }
 
-
 // On Fetching Recommended Event
 class GetRecommendedEvent extends Event {
   GetRecommendedEvent() : super(withLoading: true);
 }
-
 
 // On Fetching Categories Event
 class GetCatsEvent extends Event {
