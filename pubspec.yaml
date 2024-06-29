@@ -48,6 +48,8 @@ dependencies:
   injectable_generator: ^2.6.1
   flutter_bloc: ^8.1.6
   shimmer: ^3.0.0
+  animated_splash_screen: ^1.3.0
+  page_transition: ^2.1.0
 
 dev_dependencies:
   flutter_test:
@@ -92,6 +94,7 @@ flutter:
     - assets/images/icons/right.svg
     - assets/images/error.png
     - assets/images/placeholder.png
+    - assets/images/icons/slash.svg
 
 
   # The following line ensures that the Material Icons font is

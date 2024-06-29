@@ -5,8 +5,8 @@ import 'package:get_it/get_it.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:slash/Home/presentation/bloc/home_bloc.dart';
 import 'package:slash/Home/di/injection.dart';
-import 'package:slash/Home/presentation/screens/home_screen.dart';
 import 'package:slash/Home/presentation/screens/navBar.dart';
+import 'package:slash/Home/presentation/screens/splash.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -78,8 +78,8 @@ class MyApp extends StatelessWidget {
         ),
         initialRoute: '/',
         routes: <String, WidgetBuilder>{
-          '/': (BuildContext context) => NavBar(),
-          '/home': (BuildContext context) => HomeScreen(),
+          '/': (BuildContext context) => const Splash(),
+          '/nav': (BuildContext context) => const NavBar(),
         },
       ),
     );
