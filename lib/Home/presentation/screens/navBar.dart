@@ -61,6 +61,7 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
         },
         controller: _tabController,
         indicator: CustomTabIndicator(
+          height: 5,
           width: MediaQuery.of(context).size.width / 4.4,
           color: Theme.of(context).cardColor,
           context: context,
@@ -167,8 +168,8 @@ class _CustomTabIndicatorPainter extends BoxPainter {
     final double tabWidth = configuration.size!.width;
     final indicatorWidth = MediaQuery.of(context).size.width / 4.4;
     final double left = offset.dx + (tabWidth - indicatorWidth) / 2;
-    final double top = offset.dy -
-        5.0; // Adjust this value to position the indicator above the icon
+    final double top =
+        offset.dy; // Adjust this value to position the indicator above the icon
     const double radius = 5.0; // Customize the radius here
 
     final Path path = Path()
