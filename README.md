@@ -42,6 +42,10 @@ It also provides **smooth and intuitive user interface** and **offline access to
 - Offline access to product data
 - Modular and maintainable codebase
 
+- Shimmering Loading
+
+![ShimmerLoading](https://github.com/ahmedsaad562000/slash/assets/76961547/d00a1b34-6fd6-40e3-a7dd-0b9932521036)
+
 ## Installation
 
 1. **Clone the repository:**
