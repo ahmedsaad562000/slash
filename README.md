@@ -4,11 +4,7 @@ Slash is a Flutter application designed to provide a seamless user experience fo
 
 This project utilizes **modern state management** and **dependency injection** techniques to maintain a **clean** , **testable** and **scalable** architecture.
 
-
-
 [![Watch the video](https://img.youtube.com/vi/)](https://github.com/ahmedsaad562000/slash/assets/76961547/5001b527-6224-47ff-9fdb-71fa6a6a95b1)
-
-
 
 It also provides **smooth and intuitive user interface** and **offline access to product data**.
 
