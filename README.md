@@ -15,7 +15,6 @@ It also provides **smooth and intuitive user interface** and **offline access to
   - [Table of Contents](#table-of-contents)
   - [Features](#features)
   - [Installation](#installation)
-  - [Dependencies](#dependencies)
   - [Usage](#usage)
   - [Project Structure](#project-structure)
   - [Main Dependencies](#main-dependencies)
@@ -60,12 +59,6 @@ It also provides **smooth and intuitive user interface** and **offline access to
    flutter run
    ```
 
-
-## Dependencies
-- `flutter_bloc`: State management
-- `injectable`: Dependency injection
-- `GetIt`: Dependency injection
-- `flutter`: SDK for building the UI
 
 ## Usage
 - On the home screen, users can navigate through different categories.
